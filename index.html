@@ -6,14 +6,15 @@
     <title>Студзень 2026</title>
     <style>
         :root {
-            --gold: #d4af37;
-            --dark: #1a1a1a;
-            --soft-white: #f0f0f0;
+            --gold: #b8922e; /* Крыху больш насычанае золата для светлага фону */
+            --paper: #fdfbf7; /* Колер дарагой паперы */
+            --text: #2c2c2c;
+            --gray: #757575;
         }
         body {
-            background-color: var(--dark);
-            color: var(--soft-white);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f1ea; /* Мяккі знешні фон */
+            color: var(--text);
+            font-family: 'Georgia', serif; /* Больш класічны шрыфт */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,75 +24,104 @@
         }
         .container {
             text-align: center;
-            padding: 2.5rem 1.5rem;
-            border: 1px solid var(--gold);
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-            max-width: 400px;
+            padding: 3rem 2rem;
+            border-radius: 2px; /* Вострыя куты выглядаюць больш афіцыйна */
+            background: var(--paper);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08), inset 0 0 100px rgba(184, 146, 46, 0.03);
+            max-width: 420px;
             width: 85%;
+            border: 1px solid rgba(184, 146, 46, 0.2);
+            position: relative;
         }
-        h1 { color: var(--gold); font-size: 1.6rem; margin-bottom: 1rem; letter-spacing: 1px; }
-        .main-text { margin-bottom: 1.5rem; line-height: 1.5; opacity: 0.9; }
+        /* Дэкаратыўная рамка ўнутры */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(184, 146, 46, 0.1);
+            pointer-events: none;
+        }
+
+        h1 { 
+            color: var(--text); 
+            font-size: 1.7rem; 
+            margin-bottom: 1.5rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
         
-        .rules { 
-            font-size: 0.85rem; 
-            border-top: 1px solid rgba(212, 175, 55, 0.3); 
-            padding-top: 15px; 
-            margin-bottom: 2rem; 
-            color: #aaa; 
+        .main-text { 
+            margin-bottom: 1.5rem; 
+            line-height: 1.6; 
+            font-size: 1.05rem;
+        }
+
+        .rules {
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(184, 146, 46, 0.2);
+            padding-top: 20px;
+            margin-bottom: 2.5rem;
+            color: var(--gray);
             font-style: italic;
         }
 
         input {
             background: transparent;
             border: none;
-            border-bottom: 2px solid var(--gold);
-            color: white;
+            border-bottom: 1px solid var(--gold);
+            color: var(--text);
             padding: 10px;
-            width: 70%;
+            width: 60%;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             outline: none;
             margin-bottom: 2rem;
-            transition: 0.3s;
+            transition: 0.4s;
+            font-family: inherit;
         }
-        input:focus { width: 85%; border-bottom-color: white; }
-        
+        input:focus { 
+            width: 80%; 
+            border-bottom-color: var(--text); 
+        }
+
         button {
-            background: var(--gold);
-            color: var(--dark);
+            background: var(--text);
+            color: #fff;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: bold;
+            padding: 14px 40px;
+            border-radius: 0; /* Строгія кнопкі для светлага дызайну */
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: 0.3s;
         }
-        button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--gold); }
-        
-        .error { color: #ff4d4d; margin-top: 15px; display: none; font-size: 0.9rem; }
-        .cat-icon { font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        button:hover { 
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .error { color: #b22222; margin-top: 15px; display: none; font-size: 0.85rem; }
+        .icon { font-size: 2rem; margin-bottom: 1.5rem; color: var(--gold); }
     </style>
 </head>
 <body>
 
 <div class="container">
-<div class="cat-icon" style="font-size: 2.5rem;">✉️</div>
+    <div class="icon">✨</div>
     <h1>Студзень 2026</h1>
-    
-    <p class="main-text">Кожны канверт — гэта новы сюрпрыз. Увядзі сакрэтны код, каб даведацца, якая прыгода чакае цябе на гэтым тыдні.</p>
+
+    <p class="main-text">Кожны канверт — гэта новы сюрпрыз. Увядзі сакрэтны код, каб адкрыць прыгоду гэтага тыдня.</p>
 
     <div class="rules">
-       Памятай: адзін тыдзень — адзін канверт.<br>Давай смакаваць гэты студзень паступова ✨
+       Памятай: адзін тыдзень — адзін канверт.<br>Давай смакаваць прыгоды гэтага месяца паступова.
     </div>
 
     <input type="text" id="passcode" placeholder="Увядзі код" autocomplete="off">
     <br>
-    <button onclick="checkCode()">Адкрыць таямніцу</button>
-    <div id="error-msg" class="error">Такога коду не існуе! 🐾</div>
+    <button onclick="checkCode()">Адкрыць</button>
+    <div id="error-msg" class="error">Ключ не падыходзіць...</div>
 </div>
 
 <script>
@@ -100,7 +130,7 @@
         const error = document.getElementById('error-msg');
 
         const routes = {
-            'pachatak': 'pachatak.html', 
+            'pachatak': 'pachatak.html',
             'meow2': '',
             'meow3': '',
             'meow4': ''
