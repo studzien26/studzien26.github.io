@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студзень 2026</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --soft-white: #f0f0f0;
+        }
+        body {
+            background-color: var(--dark);
+            color: var(--soft-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 { color: var(--gold); font-size: 1.5rem; margin-bottom: 1.5rem; }
+        p { margin-bottom: 2rem; font-style: italic; opacity: 0.8; }
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--gold);
+            color: white;
+            padding: 10px;
+            width: 80%;
+            text-align: center;
+            font-size: 1.2rem;
+            outline: none;
+            margin-bottom: 1.5rem;
+        }
+        button {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 10px var(--gold); }
+        .error { color: #ff4d4d; margin-top: 10px; display: none; font-size: 0.9rem; }
+        .cat-icon { font-size: 3rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="cat-icon">🐈‍⬛</div>
+    <h1>Культурны Код Студзеня</h1>
+    <p>Увядзі код з канверта, каб даведацца пра нашу прыгоду</p>
+    
+    <input type="text" id="passcode" placeholder="Код тут..." autocomplete="off">
+    <br>
+    <button onclick="checkCode()">Адкрыць таямніцу</button>
+    <div id="error-msg" class="error">Такога коду не існуе!</div>
+</div>
+
+<script>
+    function checkCode() {
+        const code = document.getElementById('passcode').value.toLowerCase().trim();
+        const error = document.getElementById('error-msg');
+        
+        const routes = {
+            'meow1': 'https://studzien2026.github.io/pachatak.html', 
+            'meow2': '', 
+            'meow3': '', 
+            'meow4': ''  
+        };
+
+        if (routes[code]) {
+            window.location.href = routes[code];
+        } else {
+            error.style.display = 'block';
+            document.getElementById('passcode').value = '';
+        }
+    }
+
+    document.getElementById('passcode').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') { checkCode(); }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тыдзень 1: Залатая Спадчына </title>
+    <style>
+        :root {
+            --gold: #b8922e;
+            --bg: #fdfbf7;
+            --text: #2c2c2c;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-image {
+            width: 100%;
+            height: 250px;
+            background: url('img/nacmuz.jpg') center/cover;
+            border-bottom: 3px solid var(--gold);
+        }
+        .content {
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .info-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .info-item span {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        .description {
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(184, 146, 46, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(184, 146, 46, 0.4);
+        }
+        .footer-cat {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-image"></div>
+
+<div class="content">
+    <h1>Залатая Спадчына</h1>
+    <p class="subtitle">Тыдзень 1: Адкрываем таямніцы Колхіды</p>
+
+    <div class="description">
+        Наш культурны студзень пачынаецца з велічы. Мы адправімся ў месца, дзе захоўваецца самае каштоўнае золата Грузіі, каб на свае вочы пабачыць майстэрства, якое перажыло тысячагоддзі.
+    </div>
+
+    <div class="info-card">
+        <div class="info-item">
+            <span>📍</span>
+            <div><b>Месца:</b> Нацыянальны музей Грузіі (Музей Джанашыя)<br>пр-т Шота Руставелі, 3</div>
+        </div>
+        <div class="info-item">
+            <span>👗</span>
+            <div><b>Дрэс-код:</b> Smart Casual / Элегантны. Сёння мы будзем акружаны золатам, трэба адпавядаць.</div>
+        </div>
+        <div class="info-item">
+            <span>🥂</span>
+            <div><b>Пасля:</b> Зайдзем на каву альбо келіх віна ў Museum Cafe, каб абмеркаваць убачанае.</div>
+        </div>
+    </div>
+
+    <a href="https://maps.app.goo.gl/3QW6S2wAnCsc2i6K8" class="btn" target="_blank">Адкрыць мапу 📍</a>
+</div>
+
+</body>
+</html>
