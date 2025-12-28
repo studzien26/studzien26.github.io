@@ -23,66 +23,87 @@
         }
         .container {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border: 1px solid var(--gold);
             border-radius: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
             max-width: 400px;
-            width: 90%;
+            width: 85%;
         }
-        h1 { color: var(--gold); font-size: 1.5rem; margin-bottom: 1.5rem; }
-        p { margin-bottom: 2rem; font-style: italic; opacity: 0.8; }
+        h1 { color: var(--gold); font-size: 1.6rem; margin-bottom: 1rem; letter-spacing: 1px; }
+        .main-text { margin-bottom: 1.5rem; line-height: 1.5; opacity: 0.9; }
+        
+        .rules { 
+            font-size: 0.85rem; 
+            border-top: 1px solid rgba(212, 175, 55, 0.3); 
+            padding-top: 15px; 
+            margin-bottom: 2rem; 
+            color: #aaa; 
+            font-style: italic;
+        }
+
         input {
             background: transparent;
             border: none;
             border-bottom: 2px solid var(--gold);
             color: white;
             padding: 10px;
-            width: 80%;
+            width: 70%;
             text-align: center;
             font-size: 1.2rem;
             outline: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            transition: 0.3s;
         }
+        input:focus { width: 85%; border-bottom-color: white; }
+        
         button {
             background: var(--gold);
             color: var(--dark);
             border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 25px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: 0.3s;
         }
-        button:hover { transform: scale(1.05); box-shadow: 0 0 10px var(--gold); }
-        .error { color: #ff4d4d; margin-top: 10px; display: none; font-size: 0.9rem; }
-        .cat-icon { font-size: 3rem; margin-bottom: 1rem; }
+        button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--gold); }
+        
+        .error { color: #ff4d4d; margin-top: 15px; display: none; font-size: 0.9rem; }
+        .cat-icon { font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="cat-icon">🐈‍⬛</div>
-    <h1>Культурны Код Студзеня</h1>
-    <p>Увядзі код з канверта, каб даведацца пра нашу прыгоду</p>
+<div class="cat-icon" style="font-size: 2.5rem;">✉️</div>
+    <h1>Студзень 2026</h1>
     
-    <input type="text" id="passcode" placeholder="Код тут..." autocomplete="off">
+    <p class="main-text">Кожны канверт — гэта новы сюрпрыз. Увядзі сакрэтны код, каб даведацца, якая прыгода чакае цябе на гэтым тыдні.</p>
+
+    <div class="rules">
+       Памятай: адзін тыдзень — адзін канверт.<br>Давай смакаваць гэты студзень паступова ✨
+    </div>
+
+    <input type="text" id="passcode" placeholder="Увядзі код" autocomplete="off">
     <br>
     <button onclick="checkCode()">Адкрыць таямніцу</button>
-    <div id="error-msg" class="error">Такога коду не існуе!</div>
+    <div id="error-msg" class="error">Такога коду не існуе! 🐾</div>
 </div>
 
 <script>
     function checkCode() {
         const code = document.getElementById('passcode').value.toLowerCase().trim();
         const error = document.getElementById('error-msg');
-        
+
         const routes = {
-            'pachatak': 'https://studzien26.github.io/pachatak.html', 
-            'meow2': '', 
-            'meow3': '', 
-            'meow4': ''  
+            'pachatak': 'pachatak.html', 
+            'meow2': '',
+            'meow3': '',
+            'meow4': ''
         };
 
         if (routes[code]) {
