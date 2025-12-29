@@ -90,6 +90,20 @@
 </head>
 <body>
 
+<audio id="museum-music" loop autoplay>
+    <source src="mp3/pachatak.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    window.addEventListener('load', () => {
+        const audio = document.getElementById('museum-music');
+        audio.volume = 0.3;
+        audio.play().catch(() => {
+            document.addEventListener('click', () => { audio.play(); }, { once: true });
+        });
+    });
+</script>
+
 <div class="header-image"></div>
 
 <div class="content">
