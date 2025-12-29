@@ -90,7 +90,7 @@
 </head>
 <body>
 
-<audio id="museum-music" loop autoplay>
+<audio id="museum-music" loop preload="auto">
     <source src="mp3/pachatak.mp3" type="audio/mpeg">
 </audio>
 
@@ -98,9 +98,19 @@
     window.addEventListener('load', () => {
         const audio = document.getElementById('museum-music');
         audio.volume = 0.3;
-        audio.play().catch(() => {
-            document.addEventListener('click', () => { audio.play(); }, { once: true });
-        });
+
+        // Функцыя запуску
+        const startMusic = () => {
+            audio.play().then(() => {
+                document.removeEventListener('click', startMusic);
+                document.removeEventListener('touchstart', startMusic);
+            }).catch(e => console.log("Чакаем узаемадзеяння..."));
+        };
+
+        document.addEventListener('click', startMusic);
+        document.addEventListener('touchstart', startMusic);
+
+        startMusic();
     });
 </script>
 
