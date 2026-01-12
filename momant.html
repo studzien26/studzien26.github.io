@@ -9,7 +9,18 @@
         :root {
             --text-color: #d1d1d1;
             --accent: #bd9334;
-            --card-bg: rgba(5, 5, 5, 0.92);
+            --card-bg: rgba(5, 5, 5, 0.85); 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes breathe {
+            0% { box-shadow: 0 0 50px rgba(0,0,0,1); }
+            50% { box-shadow: 0 0 70px rgba(189, 147, 52, 0.1); }
+            100% { box-shadow: 0 0 50px rgba(0,0,0,1); }
         }
 
         body {
@@ -33,7 +44,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 100%);
             z-index: 0;
         }
 
@@ -42,41 +53,40 @@
             width: 85%;
             padding: 60px 40px;
             background: var(--card-bg);
-            border-left: 1px solid var(--accent);
+            border-left: 1px solid #341b16;
             position: relative;
             z-index: 1;
             text-align: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 0 50px rgba(0,0,0,1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            animation: fadeIn 2.5s ease-out, breathe 8s infinite ease-in-out;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: 10px; 
             margin-bottom: 35px;
-            color: var(--accent);
+            color: #5b7b76;
             font-weight: 400;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .description {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             line-height: 2;
-            font-style: italic;
             margin-bottom: 45px;
-            color: #fff;
+            color: #ffffffa1;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .details {
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
             padding-top: 35px;
-            color: #666;
-            letter-spacing: 1px;
+            color: #777;
+            letter-spacing: 1.5px;
         }
 
         .location {
@@ -91,9 +101,11 @@
             display: inline-block;
             margin-top: 45px;
             text-decoration: none;
-            color: #333;
-            font-size: 0.75rem;
+            color: #444;
+            font-size: 0.7rem;
             transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back-link:hover { color: var(--accent); }
@@ -103,19 +115,21 @@
             bottom: 40px;
             right: 40px;
             background: none;
-            border: 1px solid #222;
-            color: #444;
+            border: 1px solid rgba(189, 147, 52, 0.3);
+            color: var(--accent);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             cursor: pointer;
             z-index: 10;
             transition: 0.5s;
+            opacity: 0.5;
         }
-        
+
         #music-toggle:hover {
+            opacity: 1;
             border-color: var(--accent);
-            color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
         }
     </style>
 </head>
@@ -129,18 +143,19 @@
         <h1>Momant #2</h1>
 
         <p class="description">
-Сёння наш момант — сярод ценяў мінулага і мастацтва, якое не патрабуе слоў. 
-    Накіруемся туды, дзе кожная заля захоўвае таямніцы вялікіх пачуццяў. 
-    Правядзем гэты час сярод старых люстэркаў, цішыні, ды прыгажосці.
-        </p>
+	Сёння наш момант — сярод ценяў мінулага і мастацтва, якое не патрабуе слоў. 
+        Накіруемся туды, дзе застылы час захоўвае таямніцы тых, хто быў да нас. 
+        Правядзем гэты час у цішыні ды глыбіні старых люстэркаў. <br><br>
+        А пасля — зьядзім марозіва ў Luca Polare, ды вып’ем кавы, каб павольна вярнуцца ў рэчаіснасць.        
+</p>
 
         <div class="details">
             <span class="location">Палац Мастацтваў (Art Palace)</span>
             <span>вул. Іа Каргарэтэлі, 6</span><br>
-            <span>Аўт — Нядзеля • 10:30 — 17:30</span>
+            <span>Любы дзень апроч панядзелка • 10:30 — 17:30</span>
         </div>
 
-        <a href="index.html" class="back-link">← вярнуцца да канвертаў</a>
+        <a href="index.html" class="back-link">← вярнуцца</a>
     </div>
 
     <button id="music-toggle">🎵</button>
@@ -160,6 +175,5 @@
             if (!playing) { audio.play(); btn.textContent = '⏸'; playing = true; }
         }, { once: true });
     </script>
-
 </body>
 </html>
