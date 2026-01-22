@@ -3,121 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Студзень 2026. Тыдзень 2:</title>
+    <title>ADLIHA</title>
     <style>
-        :root {
-            --gold: #b8922e;
-            --bg: #fdfbf7;
-            --text: #2c2c2c;
-        }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Georgia', serif;
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600&family=Playfair+Display:ital,wght@1,400&display=swap');
+
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            font-family: 'Manrope', sans-serif;
+            background: #fdfaf7;
+            color: #3e3a36;
+            overflow: hidden;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(219, 185, 153, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(189, 147, 52, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-        .header-image {
-            width: 100%;
-            height: 250px;
-            background: url('img/nacmuz.jpg') center/cover;
-            border-bottom: 3px solid var(--gold);
-        }
-        .content {
-            max-width: 500px;
-            width: 90%;
-            padding: 40px 20px;
             text-align: center;
+            padding: 0 10%;
         }
+
+        .week-num {
+            font-size: 0.7rem;
+            letter-spacing: 0.4rem;
+            text-transform: uppercase;
+            color: #bd9334;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
         h1 {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            font-weight: 400;
+            font-style: italic;
+            color: #2c2926;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #bd9334;
+            margin: 2rem 0;
+        }
+
+        .story {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-weight: 400;
+            max-width: 500px;
+            color: #5a544f;
+        }
+
+        .back {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            text-decoration: none;
+            color: #a0978e;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-        .subtitle {
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #666;
-        }
-        .info-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: left;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        .info-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-        .info-item span {
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        .description {
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--gold);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(184, 146, 46, 0.3);
+            border-bottom: 1px solid transparent;
+            white-space: nowrap;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(184, 146, 46, 0.4);
+
+        .back:hover { 
+            color: #bd9334;
+            border-bottom: 1px solid #bd9334;
         }
-        .footer-cat {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #888;
+
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
-<audio id="museum-music" loop preload="auto">
-    <source src="mp3/pachatak.mp3" type="audio/mpeg">
-</audio>
+    <audio id="bg-audio" loop>
+        <source src="mp3/adliha.m4a" type="audio/mpeg">
+    </audio>
 
-<script>
-    window.addEventListener('load', () => {
-        const audio = document.getElementById('museum-music');
-        audio.volume = 0.3;
+    <div class="grain"></div>
+    <div class="bg-overlay"></div>
 
-        // Функцыя запуску
-        const startMusic = () => {
-            audio.play().then(() => {
-                document.removeEventListener('click', startMusic);
-                document.removeEventListener('touchstart', startMusic);
-            }).catch(e => console.log("Чакаем узаемадзеяння..."));
-        };
+    <div class="main-content">
+        <div class="week-num">Тыдзень 04</div>
+        <h1>Адліга.</h1>
+        <div class="divider"></div>
+        
+        <p class="story">
+            Фінал нашага месяца — час для цяпла і стварэння. <br>
+            Мы завітаем у <b>Bulbuli</b>, каб сярод водару кавы <br>
+            даць волю фантазіі і рукам. <br><br>
+            Будзем ляпіць з пластыліну нашы сумесныя сусветы...<br>
+            А дома цябе будуць чакаць прыгожыя кветкі <span class="heart">&#10084;&#65038;</span>
+        </p>
+    </div>
 
-        document.addEventListener('click', startMusic);
-        document.addEventListener('touchstart', startMusic);
+    <a href="index.html" class="back">назад</a>
 
-        startMusic();
-    });
-</script>
-
-
-<div class="content">
-    <h1>Час яшчэ не прыйшоў:)</h1>
-</div>
-
+    <script>
+        document.addEventListener('click', () => {
+            const audio = document.getElementById('bg-audio');
+            if (audio) audio.play();
+        }, { once: true });
+    </script>
 </body>
 </html>
