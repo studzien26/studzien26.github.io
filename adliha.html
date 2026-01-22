@@ -10,11 +10,10 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100%; 
             font-family: 'Manrope', sans-serif;
             background: #fdfaf7;
             color: #3e3a36;
-            overflow: hidden;
         }
 
         .bg-overlay {
@@ -23,7 +22,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(219, 185, 153, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(189, 147, 52, 0.1) 0%, transparent 40%);
             z-index: 1;
@@ -32,13 +31,14 @@
         .main-content {
             position: relative;
             z-index: 2;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 40px 10%; 
+            box-sizing: border-box;
         }
 
         .week-num {
@@ -72,14 +72,18 @@
             font-weight: 400;
             max-width: 500px;
             color: #5a544f;
+            margin-bottom: 3rem; 
+        }
+
+        .heart {
+            display: inline-block;
+            color: #bd9334;
+            margin-left: 5px;
+            font-size: 1.2rem;
+            vertical-align: middle;
         }
 
         .back {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
             text-decoration: none;
             color: #a0978e;
             font-size: 0.75rem;
@@ -90,7 +94,7 @@
             white-space: nowrap;
         }
 
-        .back:hover { 
+        .back:hover {
             color: #bd9334;
             border-bottom: 1px solid #bd9334;
         }
@@ -118,7 +122,7 @@
         <div class="week-num">Тыдзень 04</div>
         <h1>Адліга.</h1>
         <div class="divider"></div>
-        
+
         <p class="story">
             Фінал нашага месяца — час для цяпла і стварэння. <br>
             Мы завітаем у <b>Bulbuli</b>, каб сярод водару кавы <br>
@@ -126,9 +130,9 @@
             Будзем ляпіць з пластыліну нашы сумесныя сусветы...<br>
             А дома цябе будуць чакаць прыгожыя кветкі <span class="heart">&#10084;&#65038;</span>
         </p>
-    </div>
 
-    <a href="index.html" class="back">назад</a>
+        <a href="index.html" class="back">назад</a>
+    </div>
 
     <script>
         document.addEventListener('click', () => {
