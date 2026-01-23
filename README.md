@@ -11,3 +11,9 @@
 
 Фоты для гісторыі:
 
+<p align="left">
+  <img src="img/kody.jpg" width="300">
+  <img src="img/kanverty.jpg" width="300">
+</p>
+
+
